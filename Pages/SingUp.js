@@ -95,8 +95,8 @@ export default function SignUp() {
       <TouchableOpacity style={styles.signBtn} onPress={handleSignUp} >
         <Text style={styles.btntxt}>register</Text>
       </TouchableOpacity>
-      <Text>Already registered?
-        <Text onPress={()=> navigation.navigate("Login")} >Click here</Text>
+      <Text style={styles.Rlink}>Already registered?
+        <Text style={styles.Rlink2} onPress={()=> navigation.navigate("Login")} >Click here</Text>
       </Text>
 
 
@@ -109,20 +109,21 @@ export default function SignUp() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "bisque",
+    backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
   },
 
   Signinpt: {
     width: "60%",
-    backgroundColor: "bisque",
+    backgroundColor: "white",
     margin: "1%",
     fontSize: 17,
     fontWeight: "600",
     borderRadius: 20,
     borderBottomWidth: 5,
     paddingLeft: "2%",
+    borderColor:"dodgerblue",
   },
 
   signTxt: {
@@ -136,12 +137,27 @@ const styles = StyleSheet.create({
     borderWidth: 5,
     width:"20%",
     margin:"5%",
+    borderColor:"dodgerblue",
   },
   
   btntxt : {
     paddingLeft: "6%",
     fontWeight: "600",
     fontSize: 17,
+    color:"white",
+    backgroundColor:"dodgerblue"
+  },
+  Rlink: {
+    
+    fontWeight:"800",
+    fontSize: 20 ,
+
+  },
+  Rlink2: {
+    color:"dodgerblue",
+    fontWeight:"800",
+    fontSize: 20 ,
+
   },
 });
 

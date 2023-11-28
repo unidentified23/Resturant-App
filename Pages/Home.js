@@ -5,27 +5,13 @@ import backgroundB from "../assets/burger.jpg";
 import { useNavigation } from "@react-navigation/native";
 
 export default function Home() {
-  const navigate = useNavigation();
+  const navigation = useNavigation();
 
-  const toFlourMenu = () => {
-    navigate.navigate("flourMenu");
-  };
-
-  const toIntercuisine = () => {
-    navigate.navigate("InterCuisine");
-  };
-
-  const toLocalCuisine =() => {
-    navigate.navigate("LocalCuisine");
-  };
-
-  const toDesertsDrinks =() => {
-    navigate.navigate("Deserts & Drinks");
-  };
-
+ 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.flourC} onPress={toFlourMenu}>
+   
+      <TouchableOpacity style={styles.flourC} >
         <Text style={styles.FTxt}>Flour cuisine</Text>
         <View style={styles.ImgC}></View>
         <Text style={styles.thisInc}>This includes:</Text>
@@ -36,7 +22,7 @@ export default function Home() {
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.flourC} onPress={toLocalCuisine} >
+      <TouchableOpacity style={styles.flourC}  >
         <Text style={styles.FTxt}>Local cuisine</Text>
         <View style={styles.ImgC}></View>
         <Text style={styles.thisInc}>This includes:</Text>
@@ -47,7 +33,7 @@ export default function Home() {
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.flourC} onPress={toIntercuisine} >
+      <TouchableOpacity style={styles.flourC}  >
         <Text style={styles.FTxt}>Internatinal cuisine</Text>
         <View style={styles.ImgC}></View>
         <Text style={styles.thisInc}>This includes:</Text>
@@ -58,7 +44,7 @@ export default function Home() {
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.flourC} onPress={toDesertsDrinks} >
+      <TouchableOpacity style={styles.flourC}  >
         <Text style={styles.FTxt}>Deserts and Drinks</Text>
         <View style={styles.ImgC}></View>
         <Text style={styles.thisInc}>This includes:</Text>
@@ -68,6 +54,7 @@ export default function Home() {
           <Text style={styles.includes}>-Virgin Cocktails</Text>
         </View>
       </TouchableOpacity>
+
       
       <Text style={styles.Rname}>Man's kitchen </Text>
 

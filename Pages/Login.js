@@ -47,7 +47,7 @@ export default function Login () {
       </TouchableOpacity>
 
        <Text style={styles.LogTxt2}>Don't have an account?
-       <Text onPress={() => navigation.navigate("SignUp") }>click here</Text>
+       <Text onPress={() => navigation.navigate("SignUp") }style={styles.Rlink}>click here</Text>
        </Text>
 
       <StatusBar style="auto" />
@@ -58,12 +58,12 @@ export default function Login () {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fad6a5',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
   },
   Loginput: {
-    backgroundColor:"bisque",
+    backgroundColor:"white",
     width:"45%",
     height:"5%",
     borderRadius:20,
@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
     paddingLeft:"3%",
     marginVertical: "1%",
     borderBottomWidth: 5,
+    borderColor:"dodgerblue",
 
     },
 
@@ -83,22 +84,31 @@ const styles = StyleSheet.create({
     },
 
     LogTxt2: {
-      fontWeight:"600",
-      fontSize: 15 ,
+      fontWeight:"800",
+      fontSize: 20,
       top:"10%",
       
     },
+
+    Rlink: {
+      color:"dodgerblue",
+      fontWeight:"800",
+      fontSize: 20 ,
+
+    },
     button: {
-      backgroundColor:"bisque",
+      backgroundColor:"dodgerblue",
       width: "15%",
-      height:"4%",
+      height:"5%",
       borderRadius:20,
       borderWidth:5,
       marginVertical: "3%",
+      borderColor:"dodgerblue",
     },
 
     BtnTxt : {
       paddingLeft:"10%",
       fontWeight: "600",
+      color:"white",
     },
 });

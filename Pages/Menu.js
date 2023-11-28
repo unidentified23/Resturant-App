@@ -1,26 +1,27 @@
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import backgroundB from "../assets/burger.jpg";
 import { useNavigation } from "@react-navigation/native";
+import RiceExtra from '../assets/rice extra.jpg'
 
 export default function Menu () {
-  const navigate = useNavigation();
+  const navigation = useNavigation();
 
   const toFlourMenu = () => {
-    navigate.navigate("flourMenu");
+    navigation.navigate("flourMenu");
   };
 
   const toIntercuisine = () => {
-    navigate.navigate("InterCuisine");
+    navigation.navigate("InterCuisine");
   };
 
   const toLocalCuisine =() => {
-    navigate.navigate("LocalCuisine");
+    navigation.navigate("LocalCuisine");
   };
 
   const toDesertsDrinks =() => {
-    navigate.navigate("Deserts & Drinks");
+    navigation.navigate("Deserts & Drinks");
   };
 
   return (
@@ -49,7 +50,9 @@ export default function Menu () {
 
       <TouchableOpacity style={styles.flourC} onPress={toIntercuisine} >
         <Text style={styles.FTxt}>Internatinal cuisine</Text>
-        <View style={styles.ImgC}></View>
+        <View style={styles.ImgC}>
+        <Image style={styles.ImgS} source={RiceExtra} />
+        </View>
         <Text style={styles.thisInc}>This includes:</Text>
         <View style={styles.TxtC}>
           <Text style={styles.includes}>-Pizza</Text>
@@ -79,17 +82,17 @@ export default function Menu () {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fad6a5",
+    backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
   },
 
   flourC: {
-    backgroundColor: "#fad6a5",
+    backgroundColor: "white",
     width: "95%",
     height: "20%",
     margin: "2%",
-    borderColor: "black",
+    borderColor: "dodgerblue",
     borderWidth: 5,
     borderRadius: 20,
   },
@@ -99,13 +102,20 @@ const styles = StyleSheet.create({
     fontWeight: "900",
     margin: "2%",
     left: "5%",
+    color:"dodgerblue",
   },
 
   ImgC: {
-    backgroundColor: "black",
+    backgroundColor: "dodgerblue",
     height: "60%",
     width: "25%",
     left: "5%",
+    borderRadius: 20,
+  },
+  ImgS: {
+    
+    height: "100%",
+    width: "100%",
     borderRadius: 20,
   },
 
@@ -115,12 +125,13 @@ const styles = StyleSheet.create({
     color: "black",
     left: "55%",
     bottom: "70%",
+    color:"dodgerblue",
   },
 
   TxtC: {
-    backgroundColor: "#fad6a5",
+    backgroundColor: "white",
     width: "35%",
-    height: "60%",
+    height: "56%",
     bottom: "70%",
     left: "60%",
   },
@@ -128,10 +139,12 @@ const styles = StyleSheet.create({
   includes: {
     fontWeight: "900",
     fontSize: 15,
+    color:"dodgerblue",
   },
 
   Rname: {
     fontWeight: "900",
     fontSize: 15,
+    color:"dodgerblue",
   },
 });

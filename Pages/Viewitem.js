@@ -4,29 +4,37 @@ import {
   StyleSheet,
   Text,
   View,
-  ScrollView,
   Image,
-  TouchableOpacity,
-
+  TouchableOpacity
 } from "react-native";
-import pizza from "../assets/pizza.jpg";
+import { useNavigation } from "@react-navigation/native";
 
 
-export default function InterCuisine () {
-  
 
+export default function ViewItem ({route }) {
+    const navigation= useNavigation();
+    
+    const {item} =route.params;
+    console.log(item);
+    const Goback = () =>{
+      navigation.goBack();
+    }
   return (
     <View style={styles.container}>
+         <TouchableOpacity onPress={Goback}>
+        <Text>back</Text>
+      </TouchableOpacity>
      
     
           <View style={styles.arrCont}>
-            <Image style={styles.imageIN} source={pizza} />
-            <Text style={styles.item}>Chicken pizza</Text>
-            <Text style={styles.item}>R84.99</Text> 
-            <Text style={styles.item}>QTY: 2</Text> 	
+            <Image style={styles.imageIN} source={item.image} />
+            <Text style={styles.item}>{item.name}</Text>
+            <Text style={styles.item}>{item.price}</Text> 
+            <Text style={styles.item}>{item.Quantity}</Text> 	
          </View>
+
          <TouchableOpacity style={styles.checkout} >
-        <Text style={styles.btntxt}>register</Text>
+        <Text style={styles.btntxt}>Add to Cart</Text>
       </TouchableOpacity>
       <StatusBar style="auto" />
     </View>
@@ -36,7 +44,7 @@ export default function InterCuisine () {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FAD6A5",
+    backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -51,9 +59,9 @@ const styles = StyleSheet.create({
   arrCont: {
     width: "95%", // Set width for two columns with a small gap
     height: "85%",
-    backgroundColor: "#FAD6A5",
+    backgroundColor: "white",
     borderRadius: 10,
-    borderColor: "black",
+    borderColor: "dodgerblue",
     borderWidth: 5,
     alignItems: "center",
 
@@ -64,24 +72,23 @@ const styles = StyleSheet.create({
     height: "70%",
     borderRadius: 10,
     marginVertical:"5%",
-    backgroundColor:"blue",
+    backgroundColor:"dodgerblue",
   },
   btntxt: {
     alignSelf:"center",
     top:"30%",
     fontSize:20,
     fontWeight:"600",
-
-    
-  
+    color:"white",
   },
 
   checkout:{
-    backgroundColor:"blue",
+    backgroundColor:"dodgerblue",
     width: "90%",
     height:"10%",
     top:"1.5%",
     borderRadius:10,
+
   },
 
   addtxt: {

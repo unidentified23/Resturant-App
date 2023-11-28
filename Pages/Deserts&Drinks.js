@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState} from "react";
 import { StatusBar } from "expo-status-bar";
 import {
   StyleSheet,
@@ -11,30 +11,32 @@ import {
 } from "react-native";
 import cocktail from "../assets/cocktail.jpg";
 import { useNavigation } from "@react-navigation/native";
+import Cart from "./Cart";
+
 
 
 export default function DesertsDrinks() {
-  const numbers = [
-    { id: 1, name: "cocktail", image: cocktail, price: "R45.00" },
-    { id: 7, name: "cocktail", image: cocktail, price: "R45.00" },
-    { id: 8, name: "cocktail", image: cocktail, price: "R45.00" },
-    { id: 9, name: "cocktail", image: cocktail, price: "R45.00" },
-    { id: 10, name: "cocktail", image: cocktail, price: "R45.00" },
-    { id: 11, name: "cocktail", image: cocktail, price: "R45.00" },
-    { id: 12, name: "cocktail", image: cocktail, price: "R45.00" },
+  const [numbers,setnumbers] =useState ([
+    { id: 1, name: "Small Burger", image: cocktail, price: "R45.00", Quantity: 0 },
+    { id: 7, name: "Small Burger", image: cocktail, price: "R46.00", Quantity: 0 },
+    { id: 8, name: "Small Burger", image: cocktail, price: "R47.00", Quantity: 0 },
+    { id: 9, name: "Small burger", image: cocktail, price: "R48.00", Quantity: 0 },
+    { id: 10, name: "Small Burger", image: cocktail, price: "R49.00", Quantity: 0 },
+    { id: 11, name: "Small Burger", image: cocktail, price: "R50.00", Quantity: 0 },
+   
     // Add more items as needed
-  ];
+  ]);
   const navigation = useNavigation();
-  const toView =()=> {
-    navigation.navigate("ViewItem")
-  }
+  const handleViewitem =(item)=> {
+    navigation.navigate('ViewItem',{item});
+  }; 
 
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.Fcont}>
         {numbers.map((item) => (
           <View key={item.id} style={styles.arrCont}>
-            <TouchableOpacity style={styles.image} onPress={toView} >
+            <TouchableOpacity style={styles.image} onPress={() => handleViewitem(item)} >
             <Image style={styles.imageIN} source={item.image} />
 
             </TouchableOpacity>
@@ -58,7 +60,7 @@ export default function DesertsDrinks() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "bisque",
+    backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -78,9 +80,9 @@ const styles = StyleSheet.create({
   arrCont: {
     width: "49%", // Set width for two columns with a small gap
     height: 200,
-    backgroundColor: "bisque",
+    backgroundColor: "white",
     borderRadius: 10,
-    borderColor: "black",
+    borderColor: "dodgerblue",
     borderWidth: 5,
     marginVertical: 5,
     alignItems: "center",
@@ -90,14 +92,14 @@ const styles = StyleSheet.create({
     height: 120,
     borderRadius: 10,
     marginVertical:10,
-    backgroundColor:"blue",
+    backgroundColor:"dodgerblue",
   },
   imageIN : {
     width: "100%",
     height: 120,
     borderRadius: 10,
     
-    backgroundColor:"blue",
+    backgroundColor:"dodgerblue",
   },
   button: {
     bottom:"14%",
@@ -106,6 +108,7 @@ const styles = StyleSheet.create({
     borderWidth:5,
     height: "15%",
     width:"15%",
+    borderColor:"dodgerblue",
     
   
   },
@@ -115,6 +118,7 @@ const styles = StyleSheet.create({
     fontWeight:"700",  
     bottom:"30%", 
     left:"15%", 
+    color:"dodgerblue",
     
   },
 });

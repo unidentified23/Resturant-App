@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default function Menu () {
   return (
@@ -20,8 +21,22 @@ export default function Menu () {
         <Text style={styles.abtTxt1}>
         for more information
         contact us on the following:
-
+         
         </Text>
+         <View style={styles.IconCont}>
+
+        <Icon name="phone" size={30} color="dodgerblue" />
+        <Icon name="email" size={30} color="dodgerblue" />
+        <Icon name="facebook" size={30} color="dodgerblue" />
+        <Icon name="instagram" size={30} color="dodgerblue" />
+        <Icon name="linkedin" size={30} color="dodgerblue" />
+        <Icon name="twitter" size={30} color="dodgerblue" />
+        <Icon name="youtube" size={30} color="dodgerblue" /> 
+       
+        </View>
+       
+        
+        
      
       <StatusBar style="auto" />
     </View>
@@ -31,7 +46,7 @@ export default function Menu () {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'bisque',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -42,10 +57,14 @@ const styles = StyleSheet.create({
     height:"30%",
     fontSize: 17,
     left: "20%",
-    bottom:"15%",
     marginVertical:"2%",
+    color:"dodgerblue",
 
-
+  },
+  IconCont:{
+    bottom:"15%",
+    lineHeight:40,
+    left:"40%",
   },
 
 });

@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useState} from "react";
 import { StatusBar } from "expo-status-bar";
 import {
   StyleSheet,
@@ -10,26 +10,31 @@ import {
 
 } from "react-native";
 import Rice from "../assets/chicken.jpg";
+import { useNavigation } from "@react-navigation/native";
 
 
 export default function LocalCuisine () {
-  const numbers = [
-    { id: 1, name: "Full chicken", image: Rice, price: "R45.00" },
-    { id: 7, name: "Full chicken", image: Rice, price: "R45.00" },
-    { id: 8, name: "Full chicken", image: Rice, price: "R45.00" },
-    { id: 9, name: "Full chicken", image: Rice, price: "R45.00" },
-    { id: 10, name: "Full chicken", image: Rice, price: "R45.00" },
-    { id: 11, name: "Full chicken", image: Rice, price: "R45.00" },
-    { id: 12, name: "Full chicken", image: Rice, price: "R45.00" },
+  const [numbers,setnumbers] =useState ([
+    { id: 1, name: "Small Burger", image: Rice, price: "R44.00", Quantity: 0 },
+    { id: 7, name: "Small Burger", image: Rice, price: "R45.00", Quantity: 0 },
+    { id: 8, name: "Small Burger", image: Rice, price: "R47.00", Quantity: 0 },
+    { id: 9, name: "Small burger", image: Rice, price: "R48.00", Quantity: 0 },
+    { id: 10, name: "Small Burger", image: Rice, price: "R46.00", Quantity: 0 },
+    { id: 11, name: "Small Burger", image: Rice, price: "R49.00", Quantity: 0 },
+   
     // Add more items as needed
-  ];
+  ]);
+  const navigation = useNavigation();
+  const handleViewitem =(item)=> {
+    navigation.navigate('ViewItem',{item});
+  }; 
 
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.Fcont}>
         {numbers.map((item) => (
           <View key={item.id} style={styles.arrCont}>
-            <TouchableOpacity style={styles.image} >
+            <TouchableOpacity style={styles.image} onPress={() => handleViewitem(item)} >
             <Image style={styles.imageIN} source={item.image} />
 
             </TouchableOpacity>
@@ -53,7 +58,7 @@ export default function LocalCuisine () {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fad6a5",
+    backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -73,9 +78,9 @@ const styles = StyleSheet.create({
   arrCont: {
     width: "49%", // Set width for two columns with a small gap
     height: 200,
-    backgroundColor: "#fad6a5",
+    backgroundColor: "white",
     borderRadius: 10,
-    borderColor: "black",
+    borderColor: "dodgerblue",
     borderWidth: 5,
     marginVertical: 5,
     alignItems: "center",
@@ -101,6 +106,7 @@ const styles = StyleSheet.create({
     borderWidth:5,
     height: "15%",
     width:"15%",
+    borderColor:"dodgerblue",
     
   
   },
@@ -110,6 +116,7 @@ const styles = StyleSheet.create({
     fontWeight:"700",  
     bottom:"30%", 
     left:"15%", 
+    color:"dodgerblue",
     
   },
 });
