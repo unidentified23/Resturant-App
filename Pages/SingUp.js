@@ -32,7 +32,7 @@ export default function SignUp() {
        };
        const docRef = addDoc(dbh,userData);
        console.log("User data added with ID: ",docRef.id);
-       alert("Welcome"+userName);
+       alert("Welcome "+userName);
        navigation.navigate("Home");
 
     }catch(error){

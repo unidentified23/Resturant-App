@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Button, Alert,Pressable } from 'react-native';
 import { authentication } from '../Firebase';
-import Login from '../Login';
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet } from 'react-native';
 

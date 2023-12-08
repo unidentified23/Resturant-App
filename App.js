@@ -22,8 +22,6 @@ import SignOutButton from './Pages/components/SignOutBtn';
 export default function App() {
   const Tab = createBottomTabNavigator();
   
- 
-  
   return (
     <NavigationContainer style={styles.container}>
       <SignOutButton/>
